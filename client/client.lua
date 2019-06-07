@@ -627,7 +627,15 @@ Citizen.CreateThread(function()
             if (v ~= nil and DoesEntityExist(k) and GetDistanceBetweenCoords(GetEntityCoords(k, true), GetEntityCoords(PlayerPedId(), true), true) <= vehicleSyncDistance) then
                 SetVehicleAutoRepairDisabled(k, true)
 
-                if getVehicleVCFInfo(k).priml.type == string.lower("chp") and getVehicleVCFInfo(k).wrnl.type == string.lower("chp") and getVehicleVCFInfo(k).secl.type == string.lower("chp") then
+                if v.cruise == true then
+                    local veh = getVehicleVCFInfo(k)
+
+                    for i=1,#veh.cruise do
+                        if veh.cruise[i] == 0 then
+                            setExtraState(k, i, 0)
+                        end
+                    end
+                elseif getVehicleVCFInfo(k).priml.type == string.lower("chp") and getVehicleVCFInfo(k).wrnl.type == string.lower("chp") and getVehicleVCFInfo(k).secl.type == string.lower("chp") then
 
                 	if v.stage == 0 then
                 		for i=1,10 do
