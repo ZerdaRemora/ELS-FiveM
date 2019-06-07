@@ -228,12 +228,12 @@ function parseVehData(xml, fileName)
     				if elem.attr['Extra1'] == "true" then a.cruise[1] = 0 else a.cruise[1] = 1 end
     				if elem.attr['Extra2'] == "true" then a.cruise[2] = 0 else a.cruise[2] = 1 end
     				if elem.attr['Extra3'] == "true" then a.cruise[3] = 0 else a.cruise[3] = 1 end
-					if elem.attr['Extra4'] == "true" then a.cruise[4] = 0 else a.cruise[4] = 1 end
-					if elem.attr['Extra5'] == "true" then a.cruise[5] = 0 else a.cruise[5] = 1 end
-					if elem.attr['Extra6'] == "true" then a.cruise[6] = 0 else a.cruise[6] = 1 end
-					if elem.attr['Extra7'] == "true" then a.cruise[7] = 0 else a.cruise[7] = 1 end
-					if elem.attr['Extra8'] == "true" then a.cruise[8] = 0 else a.cruise[8] = 1 end
-					if elem.attr['Extra9'] == "true" then a.cruise[9] = 0 else a.cruise[9] = 1 end
+    				if elem.attr['Extra4'] == "true" then a.cruise[4] = 0 else a.cruise[4] = 1 end
+    				if elem.attr['Extra5'] == "true" then a.cruise[5] = 0 else a.cruise[5] = 1 end
+    				if elem.attr['Extra6'] == "true" then a.cruise[6] = 0 else a.cruise[6] = 1 end
+    				if elem.attr['Extra7'] == "true" then a.cruise[7] = 0 else a.cruise[7] = 1 end
+    				if elem.attr['Extra8'] == "true" then a.cruise[8] = 0 else a.cruise[8] = 1 end
+    				if elem.attr['Extra9'] == "true" then a.cruise[9] = 0 else a.cruise[9] = 1 end
     			end
 
     			if(xml.root.el[i].kids[ex].name== "DisableAtLstg3") then
