@@ -637,28 +637,28 @@ Citizen.CreateThread(function()
                     end
                 elseif getVehicleVCFInfo(k).priml.type == string.lower("chp") and getVehicleVCFInfo(k).wrnl.type == string.lower("chp") and getVehicleVCFInfo(k).secl.type == string.lower("chp") then
 
-                	if v.stage == 0 then
-                		for i=1,10 do
-                			setExtraState(k, i, 1)
-                		end
-                	end
+                    if v.stage == 0 then
+                        for i=1,10 do
+                            setExtraState(k, i, 1)
+                        end
+                    end
 
-                	if v.stage == 1 and v.advisorPattern <= 1 then
-                		runCHPPattern(k, v.advisorPattern, v.stage)
-                	end
+                    if v.stage == 1 and v.advisorPattern ~= nil and v.advisorPattern <= 1 then
+                        runCHPPattern(k, v.advisorPattern, v.stage)
+                    end
 
-                	if v.stage == 2 and v.secPattern <= 3 then
-                		runCHPPattern(k, v.secPattern, v.stage)
-                	end
+                    if v.stage == 2 and v.secPattern ~= nil and v.secPattern <= 3 then
+                        runCHPPattern(k, v.secPattern, v.stage)
+                    end
 
-                	if v.stage == 3 and v.primPattern <= 3 then
-                		runCHPPattern(k, v.primPattern, v.stage)
-                	end
+                    if v.stage == 3 and v.primPattern ~= nil and v.primPattern <= 3 then
+                        runCHPPattern(k, v.primPattern, v.stage)
+                    end
 
                 else
 
 	                if (v.warning) then
-	                    if getVehicleVCFInfo(k).wrnl.type == string.lower("leds") and v.advisorPattern <= 53 then
+	                    if getVehicleVCFInfo(k).wrnl.type == string.lower("leds") and v.advisorPattern ~= nil and v.advisorPattern <= 53 then
 	                        runLedPatternWarning(k, v.advisorPattern)
 	                    end
 	                else
@@ -667,9 +667,9 @@ Citizen.CreateThread(function()
 	                end
 
 	                if (v.secondary) then
-	                    if getVehicleVCFInfo(k).secl.type == string.lower("leds") and v.secPattern <= 140 then
+	                    if getVehicleVCFInfo(k).secl.type == string.lower("leds") and v.secPattern ~= nil and v.secPattern <= 140 then
 	                        runLedPatternSecondary(k, v.secPattern, function(cb) vehIsReadySecondary[k] = cb end)
-	                    elseif getVehicleVCFInfo(k).secl.type == string.lower("traf") and v.secPattern <= 36 then
+	                    elseif getVehicleVCFInfo(k).secl.type == string.lower("traf") and v.secPattern ~= nil and v.secPattern <= 36 then
 	                        runTrafPattern(k, v.secPattern)
 	                    end
 	                else
@@ -679,7 +679,7 @@ Citizen.CreateThread(function()
 	                end
 
 	                if (v.primary) then
-	                    if getVehicleVCFInfo(k).priml.type == string.lower("leds") and v.primPattern <= 140 then
+	                    if getVehicleVCFInfo(k).priml.type == string.lower("leds") and v.primPattern ~= nil and v.primPattern <= 140 then
 	                        runLedPatternPrimary(k, v.primPattern)
 	                    end
 	                else
