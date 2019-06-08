@@ -319,38 +319,38 @@ Citizen.CreateThread(function()
     while true do
         if isVehicleELS and canControlELS then
             if IsDisabledControlPressed(0, keyboard.modifyKey) then
-                if IsDisabledControlPressed(0, keyboard.pattern.primary) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.primary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changePrimaryPatternMath(-1)
                 end
-                if IsDisabledControlPressed(0, keyboard.pattern.secondary) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.secondary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeSecondaryPatternMath(-1)
                 end
-                if IsDisabledControlPressed(0, keyboard.pattern.advisor) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.advisor) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeAdvisorPatternMath(-1)
                 end
             else
-                if IsDisabledControlPressed(0, keyboard.pattern.primary) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.primary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changePrimaryPatternMath(1)
                 end
-                if IsDisabledControlPressed(0, keyboard.pattern.secondary) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.secondary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeSecondaryPatternMath(1)
                 end
-                if IsDisabledControlPressed(0, keyboard.pattern.advisor) then
+                if IsDisabledControlJustReleased(0, keyboard.pattern.advisor) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
@@ -369,7 +369,7 @@ Citizen.CreateThread(function()
                 if canControlELS then
                     local vehN = GetVehiclePedIsUsing(PlayerPedId())
 
-                    if (panelType == "original") then
+                    if (panelType == "original") and getVehicleVCFInfo(vehN) ~= nil then
                         _DrawRect(0.85 + panelOffsetX, 0.89 + panelOffsetY, 0.26, 0.16, 16, 16, 16, 225, 0)
                     
                         _DrawRect(0.85 + panelOffsetX, 0.835 + panelOffsetY, 0.245, 0.035, 0, 0, 0, 225, 0)
