@@ -645,7 +645,11 @@ Citizen.CreateThread(function()
                     isVehicleELS = %s 
                     canControlELS = %s ]]):format(tostring(isVehicleELS), tostring(canControlELS)))
                 end
+            else
+                canControlELS = false
             end
+        else
+            canControlELS = false
         end
         Citizen.Wait(500)
     end
