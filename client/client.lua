@@ -214,18 +214,10 @@ Citizen.CreateThread(function()
                 DisableControlAction(0, controller.siren.tone_two, true)
                 DisableControlAction(0, controller.siren.tone_three, true)
 
-                if els_Vehicles[checkCarHash(GetVehiclePedIsUsing(PlayerPedId()))].activateUp then
-                    if IsDisabledControlPressed(0, controller.modifyKey) and IsDisabledControlJustReleased(0, controller.stageChange) then
-                        downOneStage()
-                    elseif IsDisabledControlJustReleased(0, controller.stageChange) then
-                        upOneStage()
-                    end
-                else
-                    if IsDisabledControlJustReleased(0, controller.stageChange) then
-                        downOneStage()
-                    elseif IsDisabledControlPressed(0, controller.modifyKey) and IsDisabledControlJustReleased(0, controller.stageChange) then
-                        upOneStage()
-                    end
+                if IsDisabledControlJustReleased(0, controller.stageChange) then
+                    downOneStage()
+                elseif IsDisabledControlPressed(0, controller.modifyKey) and IsDisabledControlJustReleased(0, controller.stageChange) then
+                    upOneStage()
                 end
 
                 if IsDisabledControlPressed(0, controller.modifyKey) then
@@ -319,38 +311,38 @@ Citizen.CreateThread(function()
     while true do
         if isVehicleELS and canControlELS then
             if IsDisabledControlPressed(0, keyboard.modifyKey) then
-                if IsDisabledControlJustReleased(0, keyboard.pattern.primary) then
+                if IsDisabledControlPressed(0, keyboard.pattern.primary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changePrimaryPatternMath(-1)
                 end
-                if IsDisabledControlJustReleased(0, keyboard.pattern.secondary) then
+                if IsDisabledControlPressed(0, keyboard.pattern.secondary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeSecondaryPatternMath(-1)
                 end
-                if IsDisabledControlJustReleased(0, keyboard.pattern.advisor) then
+                if IsDisabledControlPressed(0, keyboard.pattern.advisor) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeAdvisorPatternMath(-1)
                 end
             else
-                if IsDisabledControlJustReleased(0, keyboard.pattern.primary) then
+                if IsDisabledControlPressed(0, keyboard.pattern.primary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changePrimaryPatternMath(1)
                 end
-                if IsDisabledControlJustReleased(0, keyboard.pattern.secondary) then
+                if IsDisabledControlPressed(0, keyboard.pattern.secondary) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
                     changeSecondaryPatternMath(1)
                 end
-                if IsDisabledControlJustReleased(0, keyboard.pattern.advisor) then
+                if IsDisabledControlPressed(0, keyboard.pattern.advisor) then
                     if playButtonPressSounds then
                         PlaySoundFrontend(-1, "NAV_UP_DOWN", "HUD_FRONTEND_DEFAULT_SOUNDSET", 1)
                     end
@@ -358,7 +350,7 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        Wait(0)
+        Wait(150)
     end
 end)
 
